@@ -1,1 +1,1 @@
-My Project NodeMailer with API REST
+My Project NodeMailer with API REST.
