@@ -31,9 +31,16 @@ app.post('/send-email', (req, res) => {
 		subject: req.body.subject,
 		text: req.body.text
 	})
+	transporter.sendMail(email)
+	/* For Dev
 	transporter.sendMail(email, (req, res) => {
-		error ? res.status(400).send('Falhou') : res.status(200).send('E-mail Enviado')
-	})
+		if (error) {
+			return res.status(400).send('Falhouuuuuuuuu')
+		}
+		return res.status(200).send('Enviado')
+		
+	}) */
+	return res.status(200).send('Enviado')
 })
 
 app.delete('/del/:id', (req, res) => {
@@ -46,6 +53,5 @@ app.delete('/del', (req, res) => {
 	res.send(email)
 })
 
-app.listen(3000, () => {
-	console.log('Exec...')
-})
+app.listen()
+
